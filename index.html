@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Convos — Deeper Connections Start Here</title>
+    <meta name="description" content="Skip the small talk. Deep Convos gives you 500+ conversation starters for couples, friends, family, and more. Available on the App Store.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #111125;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #1e1e38;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #9a9ab0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 24px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(108, 92, 231, 0.2);
+            border: 1px solid rgba(108, 92, 231, 0.4);
+            color: #b8b0ff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #6C5CE7, #FFB4A3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #9a9ab0;
+            max-width: 520px;
+            margin: 0 auto 40px;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #111125;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .app-store-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* SCREENSHOT */
+        .screenshot-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 24px 80px;
+        }
+
+        .phone-mockup {
+            width: 260px;
+            background: #1a1a30;
+            border-radius: 40px;
+            border: 2px solid #2a2a45;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(108, 92, 231, 0.15);
+            padding: 24px 16px;
+        }
+
+        .phone-screen {
+            background: #111125;
+            border-radius: 28px;
+            padding: 24px 16px;
+            text-align: center;
+        }
+
+        .mock-crown {
+            width: 56px;
+            height: 56px;
+            background: rgba(108, 92, 231, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.5rem;
+        }
+
+        .mock-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .mock-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            text-align: left;
+            margin-bottom: 12px;
+            font-size: 0.75rem;
+            color: #c8c8d8;
+        }
+
+        .mock-feature-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .mock-plan {
+            background: rgba(108, 92, 231, 0.15);
+            border: 1px solid rgba(108, 92, 231, 0.4);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mock-plan-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .mock-plan-price {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .mock-plan-sub {
+            font-size: 0.65rem;
+            color: #9a9ab0;
+            margin-top: 2px;
+        }
+
+        .mock-cta {
+            background: linear-gradient(135deg, #6C5CE7, #E17055);
+            border-radius: 50px;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 12px;
+        }
+
+        /* CATEGORIES */
+        .section {
+            padding: 80px 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #6C5CE7;
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #9a9ab0;
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin: 0 auto 48px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .category-card {
+            background: #1a1a30;
+            border: 1px solid #2a2a45;
+            border-radius: 16px;
+            padding: 24px 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(108, 92, 231, 0.4);
+        }
+
+        .category-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .category-name {
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .category-desc {
+            font-size: 0.85rem;
+            color: #9a9ab0;
+        }
+
+        /* INTENSITY */
+        .intensity-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 0;
+        }
+
+        .intensity-card {
+            background: #1a1a30;
+            border: 1px solid #2a2a45;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .intensity-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .intensity-name {
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .intensity-desc {
+            font-size: 0.85rem;
+            color: #9a9ab0;
+        }
+
+        /* FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #1a1a30;
+            border: 1px solid #2a2a45;
+            border-radius: 16px;
+            padding: 28px 24px;
+        }
+
+        .feature-icon {
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #9a9ab0;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 80px 24px 100px;
+            background: linear-gradient(180deg, #111125 0%, #1a0f2e 100%);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            color: #9a9ab0;
+            font-size: 1.1rem;
+            margin-bottom: 36px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #1e1e38;
+            padding: 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-left {
+            color: #6a6a80;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #6a6a80;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #9a8cff;
+        }
+
+        @media (max-width: 600px) {
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+            .intensity-row { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <span class="nav-logo">Deep Convos</span>
+        <ul class="nav-links">
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">Now on the App Store</div>
+        <h1>Stop scrolling.<br><span>Start talking.</span></h1>
+        <p>500+ conversation starters for couples, friends, family, and more. Skip the small talk and have the conversations that actually matter.</p>
+        <a class="app-store-button" href="#">Download on the App Store</a>
+    </section>
+
+    <!-- PHONE MOCKUP -->
+    <div class="screenshot-section">
+        <div class="phone-mockup">
+            <div class="phone-screen">
+                <div class="mock-crown">👑</div>
+                <div class="mock-title">Unlock Every Conversation</div>
+                <div class="mock-feature"><span class="mock-feature-icon">∞</span> Unlimited Deep Questions for Every Relationship</div>
+                <div class="mock-feature"><span class="mock-feature-icon">🗂️</span> Unlock All Categories: Love, Life, Dreams & More</div>
+                <div class="mock-feature"><span class="mock-feature-icon">🗓️</span> New Questions Added Weekly</div>
+                <div class="mock-plan">
+                    <div>
+                        <div class="mock-plan-label">Yearly — Best Value</div>
+                        <div class="mock-plan-sub">$2.50/month</div>
+                    </div>
+                    <div class="mock-plan-price">$29.99</div>
+                </div>
+                <div class="mock-cta">Subscribe Now</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+        <p class="section-label">8 Categories</p>
+        <h2>A question for every relationship</h2>
+        <p class="section-subtitle">Whether you're on a date, hanging with friends, or reflecting alone — we have the right question.</p>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">❤️</div>
+                <div class="category-name">Couples</div>
+                <div class="category-desc">Deepen your bond with your partner</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👥</div>
+                <div class="category-name">Friends</div>
+                <div class="category-desc">Get to know your friends on a deeper level</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏠</div>
+                <div class="category-name">Family</div>
+                <div class="category-desc">Strengthen your family connections</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🌙</div>
+                <div class="category-name">Date Night</div>
+                <div class="category-desc">Spark meaningful date conversations</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🧠</div>
+                <div class="category-name">Solo Reflection</div>
+                <div class="category-desc">Explore your inner world</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎉</div>
+                <div class="category-name">Party & Group</div>
+                <div class="category-desc">Fun conversations for group settings</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">↔️</div>
+                <div class="category-name">Would You Rather</div>
+                <div class="category-desc">Tough choices, great debates</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">❄️</div>
+                <div class="category-name">Icebreakers</div>
+                <div class="category-desc">Perfect for meeting new people</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTENSITY -->
+    <section class="section">
+        <p class="section-label">3 Intensity Levels</p>
+        <h2>Go as deep as you want</h2>
+        <p class="section-subtitle">Every category has three levels — start light or dive straight into the deep end.</p>
+        <div class="intensity-row">
+            <div class="intensity-card">
+                <div class="intensity-icon">☀️</div>
+                <div class="intensity-name">Light</div>
+                <div class="intensity-desc">Fun and easy conversation starters to break the ice</div>
+            </div>
+            <div class="intensity-card">
+                <div class="intensity-icon">🌊</div>
+                <div class="intensity-name">Deep</div>
+                <div class="intensity-desc">Thoughtful questions that make you reflect and connect</div>
+            </div>
+            <div class="intensity-card">
+                <div class="intensity-icon">🔥</div>
+                <div class="intensity-name">Intense</div>
+                <div class="intensity-desc">Vulnerable, deeply personal questions for real intimacy</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <p class="section-label">Features</p>
+        <h2>Everything you need</h2>
+        <p class="section-subtitle">Simple, beautiful, and built to help you connect.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🃏</div>
+                <div class="feature-title">Swipeable Cards</div>
+                <div class="feature-desc">Swipe through questions one at a time with a satisfying card interface.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐️</div>
+                <div class="feature-title">Save Favorites</div>
+                <div class="feature-desc">Bookmark questions you love and revisit them anytime in your Favorites tab.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <div class="feature-title">Daily Reminders</div>
+                <div class="feature-desc">Opt in to a daily notification with a fresh conversation prompt each morning.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📵</div>
+                <div class="feature-title">Works Offline</div>
+                <div class="feature-desc">All 500+ questions live on your device. No internet required to use the app.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">Private by Design</div>
+                <div class="feature-desc">No accounts, no tracking, no analytics. Your data stays on your device.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <div class="feature-title">Dark Mode</div>
+                <div class="feature-desc">Beautifully designed dark UI that's easy on the eyes day and night.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to go deeper?</h2>
+        <p>Download Deep Convos free on the App Store.</p>
+        <a class="app-store-button" href="#">Download on the App Store</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-left">&copy; 2026 Deep Convos. All rights reserved.</div>
+        <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="mailto:simpletechman642@gmail.com">Contact</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
